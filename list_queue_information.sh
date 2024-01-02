@@ -13,7 +13,7 @@ do
     echo '--------------------------------------------------------------------------------'
     echo "VHOST: $VHOST"
     set +e
-    "$rabbitmqctl_cmd" -n "$rabbitmq_node" list_queues name members < /dev/null | grep -E "$rabbitmq_queue_node_1|$rabbitmq_queue_node_2"
+    "$rabbitmqctl_cmd" -n "$rabbitmq_node" -p "$VHOST" list_queues name members < /dev/null | grep -E "$rabbitmq_queue_node_1|$rabbitmq_queue_node_2"
     set -e
     echo
 done
